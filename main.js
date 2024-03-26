@@ -117,6 +117,9 @@ function pjMove(num) {
 //combat round standar
 function combat() {
   do {
+    if (enemy.hitPoints == 0 || warrior.hitPoints == 0) {
+      break;
+    }
     alert("Tu turno! tienes: " + warrior.hitPoints + "hp");
     let move = parseInt(
       prompt(
@@ -136,6 +139,9 @@ if (start) {
   alert(
     `Tu eres ${warrior.name}, tienes ${warrior.hitPoints} puntos de vida y utilizas una espada corta de una mano.`
   );
+  alert(
+    "(alguna de tus acciones estan numeradas y algunos de tus ataques tienen un maximo de usos)"
+  );
   let explore = prompt(
     "En frente de ti el camino se divide, que ruta escoges, ¿izquierda o derecha? "
   );
@@ -147,7 +153,7 @@ if (start) {
       "De entre las sombras emerge una figura oscura, moviéndose con sigilo y determinación. Sus ojos brillan con malicia mientras te observa con una mezcla de desafío y amenaza."
     );
 
-    let attack = confirm("Te predispones a atacar ? ");
+    let attack = confirm("¿Te predispones a atacar? ");
 
     if (attack) {
       alert(
@@ -155,7 +161,7 @@ if (start) {
       );
       let advantage = parseInt(
         prompt(
-          "Tu adversario parece distraido, tienes ventaja, que ataque usas ? (Sigilo '1',Atque frontal '2', Desencadenar poder '3', Tirar piedra '4')"
+          "¿Tu adversario parece distraido, tienes ventaja, que ataque usas ? (Sigilo '1',Atque frontal '2', Desencadenar poder '3', Tirar piedra '4')"
         )
       );
       if (advantage == 1) {
@@ -317,7 +323,7 @@ if (start) {
             alert(
               "Una esfera incandescente comienza a formarse entre mis palmas, creciendo en intensidad y tamaño con cada momento que pasa. El calor que emana de ella es abrasador, iluminando la oscuridad que nos rodea con un resplandor anaranjado y danzante."
             );
-            enemy.hitPoints -= warrior.hability.power;
+            enemy.hitPoints = enemy.hitPoints - warrior.hability.power;
             warrior.hability.maxUses--;
             alert("Golpeas por: " + warrior.meleeDmg);
             combat();
@@ -401,7 +407,7 @@ if (start) {
                 warrior.meleeDmg * 2
               }")`
             );
-            enemy.hitPoints -= warrior.meleeDmg * 2;
+            enemy.hitPoints = enemy.hitPoints - warrior.meleeDmg * 2;
             alert("Sigues con ventaja");
             combat();
             if (enemy.hitPoints == 0) {
@@ -435,7 +441,7 @@ if (start) {
             alert(
               "Una esfera incandescente comienza a formarse entre mis palmas, creciendo en intensidad y tamaño con cada momento que pasa. El calor que emana de ella es abrasador, iluminando la oscuridad que nos rodea con un resplandor anaranjado y danzante."
             );
-            enemy.hitPoints -= warrior.hability.power;
+            enemy.hitPoints = enemy.hitPoints - warrior.hability.power;
             warrior.hability.maxUses--;
             alert("Golpeas por: " + warrior.meleeDmg);
             combat();
