@@ -488,7 +488,7 @@ if (start) {
     }
   } else {
     alert(
-      "Después de un momento de reflexión, decides seguir tu instinto y tomar una dirección aleatoria, confiando en tu intuición para guiarte. Con cada paso que das, trato de mantener la esperanza viva y la determinación fuerte, sabiendo que eventualmente encontraré mi camino de regreso a la luz del día. Nunca mas se volvio a saber del aventurero."
+      "Después de un momento de reflexión, decides seguir tu instinto y tomar una dirección aleatoria, confiando en tu intuición para guiarte. Con cada paso que das, tratas de mantener la esperanza viva y la determinación fuerte, sabiendo que eventualmente encontraras tu camino de regreso a la luz del día.. Nunca mas se volvio a saber del aventurero..."
     );
     alert("reintentar => f5");
   }
