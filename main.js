@@ -155,7 +155,7 @@ if (start) {
       );
       let advantage = parseInt(
         prompt(
-          "Tu adversario parece distraido, tienes ventaja, que ataque usas ? (Sigilo'1',Atque frontal'2', Desencadenar poder'3', Tirar piedra'4')"
+          "Tu adversario parece distraido, tienes ventaja, que ataque usas ? (Sigilo '1',Atque frontal '2', Desencadenar poder '3', Tirar piedra '4')"
         )
       );
       if (advantage == 1) {
@@ -168,8 +168,9 @@ if (start) {
         alert("Sigues con ventaja");
         combat();
         if (enemy.hitPoints == 0) {
+          alert("¡¡Felicidades aventurero!!");
           alert(
-            "Con mis enemigos neutralizados, me retiro de nuevo a las sombras, listo para enfrentar cualquier desafío que pueda surgir en mi camino."
+            "Con tus enemigos neutralizados, te retiras de nuevo a las sombras, listo para enfrentar cualquier desafío que pueda surgir en tu camino."
           );
         } else {
           alert(
@@ -184,8 +185,9 @@ if (start) {
         alert("Golpeas por: " + warrior.meleeDmg);
         combat();
         if (enemy.hitPoints == 0) {
+          alert("¡¡Felicidades aventurero!!");
           alert(
-            "Con mis enemigos neutralizados, me retiro de nuevo a las sombras, listo para enfrentar cualquier desafío que pueda surgir en mi camino."
+            "Con tus enemigos neutralizados, te retiras de nuevo a las sombras, listo para enfrentar cualquier desafío que pueda surgir en tu camino."
           );
         } else {
           alert(
@@ -202,8 +204,9 @@ if (start) {
         combat();
 
         if (enemy.hitPoints == 0) {
+          alert("¡¡Felicitaciones aventurero, has vencido!! ");
           alert(
-            "Con mis enemigos neutralizados, me retiro de nuevo a las sombras, listo para enfrentar cualquier desafío que pueda surgir en mi camino."
+            "Con tus enemigos neutralizados, te retiras de nuevo a las sombras, listo para enfrentar cualquier desafío que pueda surgir en tu camino."
           );
         } else {
           alert(
@@ -218,8 +221,9 @@ if (start) {
         enemy.hability.power += 2;
         combat();
         if (enemy.hitPoints == 0) {
+          alert("¡¡Felicitaciones aventurero, has vencido!! ");
           alert(
-            "Con mis enemigos neutralizados, me retiro de nuevo a las sombras, listo para enfrentar cualquier desafío que pueda surgir en mi camino."
+            "Con los enemigos neutralizados, te retiras de nuevo a las sombras de la cueva, listo para enfrentar cualquier desafío que pueda surgir en mi camino."
           );
         } else {
           alert(
@@ -236,16 +240,255 @@ if (start) {
   } else if (explore == "derecha") {
     alert(
       "¡Felicidades aventurero! Has descubierto un tesoro oculto, pero lamentablemente, está custodiado por dos feroces ratas."
+    );
+    if (confirm("¿tratas de tomar el tesoro por la fuerza ?")) {
+      alert(
+        "Utilizas bola de fuego , haces estallar a las ratas, el tesoro parece resistir la explosión"
       );
-      if(confirm("¿tratas de tomar el tesoro ?")){
-        alert("Después de una ardua batalla, logro vencer a las feroces ratas que custodiaban el tesoro. Con precaución, me acerco al cofre antiguo, cuyo brillo promete riquezas olvidadas.")
+      warrior.hability.maxUses--;
+      alert(
+        "Con precaución, te acercas al cofre antiguo, cuyo brillo promete riquezas olvidadas."
+      );
+      alert(
+        "En su interior, descubres una espada envuelta en un destello de luz plateada, su hoja pulida reflejaba el brillo de las antorchas."
+      );
+      alert("Ganas +2 en ataque");
+      warrior.meleeDmg = warrior.meleeDmg + 2;
+      if (
+        confirm(
+          "Con tu nueva arma en mano, regresas al punto en el que se bifurcaba el camino. Esta vez, con renovada confianza y determinación, elijes el otro camino, el sendero que no habias explorado antes."
+        )
+      ) {
+        alert(
+          "El aire se vuelve denso con la presencia de una amenaza oculta entre las sombras. Tu corazón late con fuerza mientras tus sentidos se agudizan, preparándote para el combate que se avecina."
+        );
+        alert(
+          "De entre las sombras emerge una figura oscura, moviéndose con sigilo y determinación. Sus ojos brillan con malicia mientras te observa con una mezcla de desafío y amenaza."
+        );
+
+        let attack = confirm("Te predispones a atacar ? ");
+
+        if (attack) {
+          alert(
+            "Avanzas hacia el con paso firme, manteniendo postura defensiva mientras observas cada movimiento de tu adversario."
+          );
+          let advantage = parseInt(
+            prompt(
+              "Tu adversario parece distraido, tienes ventaja, que ataque usas ? (Sigilo '1',Atque frontal '2', Desencadenar poder '3', Tirar piedra '4')"
+            )
+          );
+          if (advantage == 1) {
+            alert(
+              `El sonido de mi ataque es apenas un susurro en la oscuridad, apenas perceptible para mi enemigo hasta que es demasiado tarde.(golpeas por "${
+                warrior.meleeDmg * 2
+              }")`
+            );
+            enemy.hitPoints -= warrior.meleeDmg * 2;
+            alert("Sigues con ventaja");
+            combat();
+            if (enemy.hitPoints == 0) {
+              alert("¡¡Felicidades aventurero, has vencido!!");
+              alert(
+                "Con tus enemigos neutralizados, te retiras de nuevo a las sombras, listo para enfrentar cualquier desafío que pueda surgir en tu camino."
+              );
+            } else {
+              alert(
+                "Aunque la batalla haya sido perdida, la guerra aún no ha terminado. Reitentar => f5"
+              );
+            }
+          } else if (advantage == 2) {
+            alert(
+              "Lanzas un feroz ataque hacia adelante, dirigiendo tu arma con toda tu fuerza y habilidad hacia tu enemigo."
+            );
+            enemy.hitPoints = enemy.hitPoints - warrior.meleeDmg;
+            alert("Golpeas por: " + warrior.meleeDmg);
+            combat();
+            if (enemy.hitPoints == 0) {
+              alert("¡¡Felicidades aventurero, has vencido!!");
+              alert(
+                "Con tus enemigos neutralizados, te retiras de nuevo a las sombras, listo para enfrentar cualquier desafío que pueda surgir en tu camino."
+              );
+            } else {
+              alert(
+                "Aunque la batalla haya sido perdida, la guerra aún no ha terminado. Reitentar => f5"
+              );
+            }
+          } else if (advantage == 3) {
+            alert(
+              "Una esfera incandescente comienza a formarse entre mis palmas, creciendo en intensidad y tamaño con cada momento que pasa. El calor que emana de ella es abrasador, iluminando la oscuridad que nos rodea con un resplandor anaranjado y danzante."
+            );
+            enemy.hitPoints -= warrior.hability.power;
+            warrior.hability.maxUses--;
+            alert("Golpeas por: " + warrior.meleeDmg);
+            combat();
+
+            if (enemy.hitPoints == 0) {
+              alert("¡¡Felicitaciones, has vencido!! ");
+              alert(
+                "Con tus enemigos neutralizados, te retiras de nuevo a las sombras, listo para enfrentar cualquier desafío que pueda surgir en tu camino."
+              );
+            } else {
+              alert(
+                "Aunque la batalla haya sido perdida, la guerra aún no ha terminado. Reitentar => f5"
+              );
+            }
+          } else if (advantage == 4) {
+            alert(
+              "La piedra vuela a través del aire con velocidad, encontrando su objetivo con un golpe certero. El sonido sordo de impacto resuena en la caverna mientras mi enemigo retrocede, aturdido por el golpe inesperado."
+            );
+            alert("¡el enemigo se enfurece, aumenta su poder en al doble!");
+            enemy.hability.power += 2;
+            combat();
+            if (enemy.hitPoints == 0) {
+              alert("¡¡Felicitaciones, has vencido!! ");
+              alert(
+                "Con tus enemigos neutralizados, te retiras de nuevo a las sombras, listo para enfrentar cualquier desafío que pueda surgir en tu camino."
+              );
+            } else {
+              alert(
+                "Aunque la batalla haya sido perdida, la guerra aún no ha terminado. Reitentar => f5"
+              );
+            }
+          } else {
+            alert("Tu indescicion te llevo a la ruina :_ ");
+            alert(
+              " un grupo de ratas te capturan y te llevan a lo mas profundo de las sombras !... Reintentar => f5"
+            );
+          }
+        }
+      } else {
+        alert(
+          "Con una sensación de satisfacción y logro, te encaminas de vuelta a tu hogar, llevando contigo la espada mágica como un símbolo de valentía y determinación. Aunque tu aventura haya llegado a su fin, sientes que queda mucho por explorar. Reintentar => f5 "
+        );
       }
+    } else {
+      alert("intentas acercarte con sigilo");
+      alert(" recibes ataques de ambas ratas. *pierdes 2hp*");
+      warrior.hitPoints = warrior.hitPoints - 2;
+      alert("¡huyes del combate, pero logras llevarte el tesoro!");
+      alert("Con cautela, abres el cofre, revelando su contenido oculto.");
+      alert(
+        "En su interior, descubres una espada envuelta en un destello de luz plateada, su hoja pulida reflejaba el brillo de las antorchas."
+      );
+      alert("Ganas +2 en ataque");
+      warrior.meleeDmg = warrior.meleeDmg + 2;
+      if (
+        confirm(
+          "Con tu nueva arma en mano, regresas al punto en el que se bifurcaba el camino. Esta vez, con renovada confianza y determinación, elijes el otro camino, el sendero que no habias explorado antes."
+        )
+      ) {
+        alert(
+          "El aire se vuelve denso con la presencia de una amenaza oculta entre las sombras. Tu corazón late con fuerza mientras tus sentidos se agudizan, preparándote para el combate que se avecina."
+        );
+        alert(
+          "De entre las sombras emerge una figura oscura, moviéndose con sigilo y determinación. Sus ojos brillan con malicia mientras te observa con una mezcla de desafío y amenaza."
+        );
+
+        let attack = confirm("Te predispones a atacar ? ");
+
+        if (attack) {
+          alert(
+            "Avanzas hacia el con paso firme, manteniendo postura defensiva mientras observas cada movimiento de tu adversario."
+          );
+          let advantage = parseInt(
+            prompt(
+              "Tu adversario parece distraido, tienes ventaja, que ataque usas ? (Sigilo '1',Atque frontal '2', Desencadenar poder '3', Tirar piedra '4')"
+            )
+          );
+          if (advantage == 1) {
+            alert(
+              `El sonido de mi ataque es apenas un susurro en la oscuridad, apenas perceptible para mi enemigo hasta que es demasiado tarde.(golpeas por "${
+                warrior.meleeDmg * 2
+              }")`
+            );
+            enemy.hitPoints -= warrior.meleeDmg * 2;
+            alert("Sigues con ventaja");
+            combat();
+            if (enemy.hitPoints == 0) {
+              alert("¡¡Felicidades aventurero, has vencido!!");
+              alert(
+                "Con tus enemigos neutralizados, te retiras de nuevo a las sombras, listo para enfrentar cualquier desafío que pueda surgir en tu camino."
+              );
+            } else {
+              alert(
+                "Aunque la batalla haya sido perdida, la guerra aún no ha terminado. Reitentar => f5"
+              );
+            }
+          } else if (advantage == 2) {
+            alert(
+              "Lanzas un feroz ataque hacia adelante, dirigiendo tu arma con toda tu fuerza y habilidad hacia tu enemigo."
+            );
+            enemy.hitPoints = enemy.hitPoints - warrior.meleeDmg;
+            alert("Golpeas por: " + warrior.meleeDmg);
+            combat();
+            if (enemy.hitPoints == 0) {
+              alert("¡¡Felicidades aventurero, has vencido!!");
+              alert(
+                "Con tus enemigos neutralizados, te retiras de nuevo a las sombras, listo para enfrentar cualquier desafío que pueda surgir en tu camino."
+              );
+            } else {
+              alert(
+                "Aunque la batalla haya sido perdida, la guerra aún no ha terminado. Reitentar => f5"
+              );
+            }
+          } else if (advantage == 3) {
+            alert(
+              "Una esfera incandescente comienza a formarse entre mis palmas, creciendo en intensidad y tamaño con cada momento que pasa. El calor que emana de ella es abrasador, iluminando la oscuridad que nos rodea con un resplandor anaranjado y danzante."
+            );
+            enemy.hitPoints -= warrior.hability.power;
+            warrior.hability.maxUses--;
+            alert("Golpeas por: " + warrior.meleeDmg);
+            combat();
+
+            if (enemy.hitPoints == 0) {
+              alert("¡¡Felicitaciones, has vencido!! ");
+              alert(
+                "Con tus enemigos neutralizados, te retiras de nuevo a las sombras, listo para enfrentar cualquier desafío que pueda surgir en tu camino."
+              );
+            } else {
+              alert(
+                "Aunque la batalla haya sido perdida, la guerra aún no ha terminado. Reitentar => f5"
+              );
+            }
+          } else if (advantage == 4) {
+            alert(
+              "La piedra vuela a través del aire con velocidad, encontrando su objetivo con un golpe certero. El sonido sordo de impacto resuena en la caverna mientras mi enemigo retrocede, aturdido por el golpe inesperado."
+            );
+            alert("¡el enemigo se enfurece, aumenta su poder en al doble!");
+            enemy.hability.power += 2;
+            combat();
+            if (enemy.hitPoints == 0) {
+              alert("¡¡Felicitaciones, has vencido!! ");
+              alert(
+                "Con tus enemigos neutralizados, te retiras de nuevo a las sombras, listo para enfrentar cualquier desafío que pueda surgir en tu camino."
+              );
+            } else {
+              alert(
+                "Aunque la batalla haya sido perdida, la guerra aún no ha terminado. Reitentar => f5"
+              );
+            }
+          } else {
+            alert("Tu indescicion te llevo a la ruina :_ ");
+            alert(
+              " un grupo de ratas te capturan y te llevan a lo mas profundo de las sombras !... Reintentar => f5"
+            );
+          }
+        }
+      } else {
+        alert(
+          "Con una sensación de satisfacción y logro, te encaminas de vuelta a tu hogar, llevando contigo la espada mágica como un símbolo de valentía y determinación. Aunque tu aventura haya llegado a su fin, sientes que queda mucho por explorar. Reintentar => f5 "
+        );
+      }
+    }
   } else {
     alert(
       "Después de un momento de reflexión, decides seguir tu instinto y tomar una dirección aleatoria, confiando en tu intuición para guiarte. Con cada paso que das, trato de mantener la esperanza viva y la determinación fuerte, sabiendo que eventualmente encontraré mi camino de regreso a la luz del día. Nunca mas se volvio a saber del aventurero."
     );
+    alert("reintentar => f5");
   }
-}
-else{
-    alert("Que los vientos del destino te guíen hacia nuevas aventuras, y que nuestros caminos vuelvan a cruzarse en algún momento futuro.")
+} else {
+  alert(
+    "Que los vientos del destino te guíen hacia nuevas aventuras, y que nuestros caminos vuelvan a cruzarse en algún momento futuro."
+  );
+  alert("reintentar => f5");
 }
